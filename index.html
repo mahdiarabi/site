@@ -255,8 +255,32 @@
 
 -->
 </style>
+<script language="JavaScript">
+<!--
+function FP_swapImg() {//v1.0
+ var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
+ n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
+ elm.$src=elm.src; elm.src=args[n+1]; } }
+}
+
+function FP_preloadImgs() {//v1.0
+ var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+ for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+}
+
+function FP_getObjectByID(id,o) {//v1.0
+ var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
+ else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
+ if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
+ for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
+ f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
+ for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
+ return null;
+}
+// -->
+</script>
 </head>
-<body id="readme">
+<body id="readme" onload="FP_preloadImgs(/*url*/'button2.jpg',/*url*/'button3.jpg')">
 <div id="s1">
   <div id="s2">
     <div id="s3">
@@ -293,9 +317,9 @@
 		<div id="content">
           <p><span class="inset">Non Commercial Use:</span>The images are Copyright &copy;2006
             Iconaholic Design Ltd. &amp; are for personal use only. The images
-            may not be redistributed, sold, exchanged for any goods or services,
+            may not be redistributed, sold, exch<a href="1.html">anged for any goods or services,
             or used commercially. You may not use the images publicly in software,
-            web sites themes, print etc. If you would like to license the images
+            web sites themes, print etc. If you would like to license the ima</a>ges
             to use publicly in software, web sites themes, print etc. (for payment)
             take a look <a href="http://www.iconaholic.com/stock-icons.html">here</a>.
             These images &amp; all images from iconaholic.com are not covered
@@ -303,11 +327,8 @@
             such a license. By downloading this file you are agreeing to be bound
             by these terms of use.</p>
           <div class="break"></div>
-          <p> <span class="inset2">Commercial Use:</span>Payment will be required
-            to use the images in commercial software, a commercial web site or
-            for any other reason commercially. You would pay Iconaholic Design
-            Ltd. for a royalty free license. For more info &amp; to contact me
-            regarding licensing take a look <a href="http://www.iconaholic.com/stock-icons.html">here</a>.</p>
+          <p> <span class="inset2">Commercial Use:</span>Payment will be 
+			required to use the images in commercial software, a com<a href="1.html"><img border="0" id="img1" src="button1.jpg" height="20" width="100" alt="Button Text" onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'button2.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img1',/*url*/'button1.jpg')" onmousedown="FP_swapImg(1,0,/*id*/'img1',/*url*/'button3.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img1',/*url*/'button2.jpg')" fp-style="fp-btn: Border Left 9" fp-title="Button Text"></a>ng take a look <a href="http://www.iconaholic.com/stock-icons.html">here</a>.</p>
           <div class="break"></div>
           <p> <span class="inset3">Donate:</span>Please help to keep the free
             downloads available by donating. Donate with <a href="https://www.paypal.com/affil/pal=design@iconaholic.com">PayPal</a>.</p>
